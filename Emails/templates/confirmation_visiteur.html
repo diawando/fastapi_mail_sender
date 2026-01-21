@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation - Ville Propre</title>
+    <style>
+        /* Styles inline pour compatibilité email clients */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .email-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #22c55e;
+        }
+        .success-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        .header h1 {
+            color: #16a34a;
+            margin: 0;
+            font-size: 1.8rem;
+        }
+        .content {
+            margin: 25px 0;
+        }
+        .content p {
+            margin: 15px 0;
+            color: #4b5563;
+        }
+        .highlight-box {
+            background-color: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .highlight-box p {
+            margin: 0;
+            color: #166534;
+        }
+        .highlight-box strong {
+            color: #16a34a;
+        }
+        .info-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .info-list li {
+            padding: 8px 0;
+            color: #4b5563;
+        }
+        .info-list li::before {
+            content: "✓ ";
+            color: #22c55e;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        .cta-button:hover {
+            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+        }
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e5e7eb;
+            text-align: center;
+            font-size: 13px;
+            color: #6b7280;
+        }
+        .footer strong {
+            color: #16a34a;
+        }
+        .disclaimer {
+            font-size: 11px;
+            margin-top: 15px;
+            color: #9ca3af;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <div class="success-icon">✅</div>
+            <h1>Message bien reçu !</h1>
+        </div>
+        
+        <div class="content">
+            <p>Bonjour <strong>{{ nom }}</strong>,</p>
+            
+            <p>
+                Nous avons bien reçu votre message et nous vous en remercions.
+            </p>
+            
+            <div class="highlight-box">
+                <p>
+                    <strong>🕐 Délai de réponse :</strong><br>
+                    Un membre de notre équipe vous contactera dans les <strong>24 à 48 heures</strong>.
+                </p>
+            </div>
+            
+            <p>
+                Votre demande est importante pour nous et sera traitée par un agent qualifié
+                du projet Ville Propre.
+            </p>
+            
+            <p><strong>Récapitulatif de votre demande :</strong></p>
+            <div style="background-color: #f9fafb; padding: 15px; border-radius: 6px; margin: 15px 0;">
+                <p style="margin: 5px 0;"><strong>Sujet :</strong> {{ sujet }}</p>
+                <p style="margin: 5px 0;"><strong>Date :</strong> {{ date_reception }}</p>
+            </div>
+            
+            <p>En attendant notre réponse, n'hésitez pas à :</p>
+            <ul class="info-list">
+                <li>📱 Consulter notre site web pour plus d'informations</li>
+                <li>📞 Nous appeler en cas d'urgence : +224 621 00 00 00</li>
+                <li>💬 Suivre nos actualités sur les réseaux sociaux</li>
+            </ul>
+            
+            <center>
+                <a href="https://villepropre.org" class="cta-button">
+                    🌐 Visiter notre site
+                </a>
+            </center>
+        </div>
+        
+        <div class="footer">
+            <p>
+                <strong>Ville Propre</strong><br>
+                Ensemble pour une Conakry plus propre 🌿
+            </p>
+            <p style="margin-top: 10px;">
+                📧 contact@villepropre.org<br>
+                📞 +224 621 00 00 00<br>
+                📍 Conakry, Guinée
+            </p>
+            <p class="disclaimer">
+                Ceci est un email automatique, merci de ne pas y répondre directement.<br>
+                Pour toute question, veuillez nous contacter via notre site web ou par téléphone.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

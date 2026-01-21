@@ -1,5 +1,6 @@
 """Service d'envoi d'emails
 """
+import os
 from fastapi_mail import FastMail, MessageSchema, ConnectionConfig, MessageType
 from fastapi import BackgroundTasks
 from typing import List, Dict, Any
@@ -14,16 +15,20 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-# === CONFIGURATION JINJA2 ===
 
+# === CONFIGURATION JINJA2 ===
+# Vérifier que le dossier templates existe
+template_dir = email_settings.MAIL_TEMPLATES_DIR
+if not os.path.exists(template_dir):
+    os.makedirs(template_dir, exist_ok=True)
+    logger.info(f"Dossier templates créé: {template_dir}")
 
 # Créer l'environnement Jinja2 pour le rendu des templates
 jinja_env = Environment(
     # FileSystemLoader : charge les templates depuis le système de fichiers
-    loader=FileSystemLoader(email_settings.MAIL_TEMPLATES_DIR),
+    loader=FileSystemLoader(template_dir),
     
     # Autoescape : protège automatiquement contre les injections XSS
-    # en échappant les caractères HTML dangereux
     autoescape=select_autoescape(['html', 'xml']),
     
     # Trim blocks : retire les espaces inutiles dans les blocs Jinja
